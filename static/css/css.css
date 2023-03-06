@@ -1,0 +1,103 @@
+* {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    height: 60px;
+    line-height: 60px;
+    font-weight: 700;
+    font-size: 2em;
+    text-decoration: none;
+    cursor: default;
+    display: flex;
+    padding-left: 1rem;
+    text-transform: uppercase;
+}
+
+#toggle {
+    user-select: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    transition: 0.2s;
+}
+
+#toggle:hover{
+    filter: invert();
+}
+
+#toggle .symbol {transition: 0.2s}
+
+#toggle.activated {
+    background: #f7226a;
+    border-bottom-left-radius: 50%;
+}
+
+#toggle.activated:hover{
+    color: black;
+    background: white;
+}
+
+#toggle.activated .symbol{
+    transform: rotate(-90deg);
+}
+
+#navbar {
+    position: relative;
+    height: 60px;
+    right: 60px;
+    background: transparent;
+    transition: 0.5s;
+    width: 0px;
+    overflow: hidden;
+}
+
+#navbar.activated{
+    width: 275px;
+}
+
+#navbar ul{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}
+
+#navbar ul li{
+    list-style: none;
+}
+
+#navbar ul li a{
+    color: #12334e;
+    height: 60px;
+    line-height: 60px;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 0 15px;
+    letter-spacing: 2px;
+    white-space: normal;
+    text-transform: uppercase;
+}
