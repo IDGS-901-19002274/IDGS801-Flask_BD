@@ -43,6 +43,15 @@ def modificar():
 @app.route('/modificar', methods=['POST'])
 def modificar():
     create_form = forms.UserForm(request.form)
+    id = request.args.get('id')
+    #SELECT * FROM alumnos where id==id
+    alumno = db.session.query(Alumnos).filter(Alumnos.id == id).first()
+    alumno.nombre = create_form.nombre.data
+    alumno.apellidos = create_form.apellidos.data
+    alumno.email = create_form.email.data
+
+    db.session.add(alumno)
+    db.session.commit()
     
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------------------
