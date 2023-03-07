@@ -22,7 +22,28 @@ def index():
         db.session.commit()
     
     return render_template('index.html', name = 'Inicio', form = create_form)
-        
+
+@app.route('/ABCompleto', methods=['GET', 'POST'])
+def abcompleto():
+    create_form = forms.UserForm(request.form)
+    #Select * from alumnos
+    alumnos = Alumnos.query.all()
+    return render_template('ABCompleto.html', form=create_form, alumnos=alumnos, name="ABCompleto")
+
+@app.route('/modificar')
+def modificar():
+    create_form = forms.UserForm(request.form)
+    id = request.args.get('id')
+    #SELECT * FROM alumnos where id==id
+    alumno = db.session.query(Alumnos).filter(Alumnos.id == id).first()
+    create_form.nombre.data = alumno.nombre
+    create_form.apellidos.data = alumno.apellidos
+    create_form.email.data = alumno.email
+    
+@app.route('/modificar', methods=['POST'])
+def modificar():
+    create_form = forms.UserForm(request.form)
+    
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------------------
 

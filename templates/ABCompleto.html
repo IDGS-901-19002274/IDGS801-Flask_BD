@@ -1,0 +1,55 @@
+{% extends "layout.html" %} 
+ 
+ {% block content%}
+   {%from "_macros.html" import render_field%}
+ 
+   <div class="">
+    <div class="">
+        <form name="sent" action="/ABCompleto" id="form1" method="POST">
+            <div class="">
+                <div class="">
+                    {{render_field(form.nombre,class='')}}
+                </div>
+            </div>
+            <div class="">
+                <div class="">
+                    {{render_field(form.apellidos,class='')}}
+                </div>
+            </div>
+            <div class="">
+                <div class="">
+                    {{render_field(form.email,class='')}}
+                </div>
+            </div>
+            <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
+            <input type="submit" id="reg-alum" name="registra" value="Registrar"/>
+        </form>
+
+        <h2>Alumnos: IDGS</h2>
+        <table>
+            <head>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Correo</th>
+                    <th>Eliminar</th>
+                    <th>Modificar</th>
+                </tr>
+            </head>
+
+            <tbody>
+                {%for alumno in alumnos%}
+                <tr>
+                    <td>{{alumno.nombre}}</td>
+                    <td>{{alumno.apellidos}}</td>
+                    <td>{{alumno.email}}</td>
+                    <td><a href="eliminar?id={{alumno.id}}">Eliminar</a></td>
+                    <td><a href="modificar?id={{alumno.id}}">Modificar</a></td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+   </div>
+ 
+{% endblock %}
