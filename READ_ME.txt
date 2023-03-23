@@ -1,0 +1,10 @@
+flask 
+flask-sqlalchemy 
+Flask-WTF 
+email-validator 
+pymysql 
+flask-login 
+mysqlclient 
+flask-marshmallow 
+python-decouple 
+python-dotenv 

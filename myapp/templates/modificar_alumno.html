@@ -1,0 +1,21 @@
+{% extends "layout.html" %} {% block content%} {%from "_macros.html" import render_field%}
+
+<div class="w3-card-4">
+    <div class="w3-container w3-teal">
+        <h1>Editar {{form.nombre.data}}</h1>
+    </div>
+    <form class="w3-container w3-light-grey" style="padding-bottom: 1rem;" name="sent" action="modificar" id="form1" method="POST">
+        {{render_field(form.id, type = "hidden")}}
+        {{render_field(form.nombre)}}
+        {{render_field(form.apellidos)}}
+        {{render_field(form.email)}}
+        <br>
+        <input type="hidden" name="csrf_token" value="{{csrf_token()}}" />
+        <a href="index" class="w3-button w3-white w3-border w3-border-red w3-round-large">
+            <i class="icon-undo icon-white"></i>Regresar
+        </a>
+        <input type="submit" class="w3-button w3-white w3-border w3-border-teal w3-round-large right" id="modificar" name="modificar" value="Modificar">
+    </form>
+</div>
+
+{% endblock %}

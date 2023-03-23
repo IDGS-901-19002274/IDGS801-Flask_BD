@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/css/w3.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/css.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <title>{{name}}</title>
+</head>
+<body class="w3-container" style="margin-top: 100px;">
+    <div>
+        {%block header%}
+            {% include 'header.html' %}
+        {%endblock%}
+    </div>
+
+    <main class="w3-content" style="margin-top:70px">
+        {%block content%}
+        {%endblock%}
+    </main>
+</body>
+</html>

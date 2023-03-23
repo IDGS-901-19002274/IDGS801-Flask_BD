@@ -1,0 +1,18 @@
+{% extends "layout.html" %} {% block content%} {%from "_macros.html" import render_field%}
+
+<div class="w3-card-4">
+    <form class="w3-container w3-light-grey" style="padding-bottom: 1rem;" name="sent" action="eliminar" id="form1" method="POST">
+        {{render_field(form.id, type = "hidden", borrar=True)}}
+        {{render_field(form.nombre, type = "hidden", borrar=True)}}
+        {{render_field(form.apellidos, type = "hidden", borrar=True)}}
+        {{render_field(form.email, type = "hidden", borrar=True)}}
+        <input type="hidden" name="csrf_token" value="{{csrf_token()}}" />
+        <h1>Se eliminará {{form.nombre.data}}, ¿Está seguro?</h1>
+        <a href="index" class="w3-button w3-green w3-btn w3-round-xxlarge">
+            <i class="icon-undo icon-white"></i>Regresar
+        </a>
+        <input type="submit" class="w3-button w3-red w3-btn w3-round-xxlarge" id="eliminar" name="eliminar" value="Eliminar" />
+    </form>
+</div>
+
+{% endblock %}

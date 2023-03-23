@@ -1,0 +1,30 @@
+{% extends "layout.html" %} {% block header %}
+<header id="header" class="w3-black">
+    <ul class="topnav w3-black">
+        <li><a href="/" class="w3-black w3-hover-white {{'active' if name == 'Inicio' else ''}}">
+            <span class="material-icons icon w3-text-red" style="font-size: 1.5rem;">home</span>Inicio</a></li>
+        <li><a href="/alumnos/index" class="w3-black w3-hover-white {{'active' if name == 'Alumnos' else ''}}">
+            <span class="material-icons icon w3-text-red" style="font-size: 1.5rem;">school</span>Alumnos</a></li>
+        <li><a href="/resistencias/index" class="w3-black w3-hover-white {{'active' if name == 'Resistencias' else ''}}">
+            <span class="material-icons icon w3-text-red" style="font-size: 1.5rem;">bolt</span>Resistencias</a></li>
+    </ul>
+    <a href="#" class="logo right"> {{name}} </a>
+</header>
+
+
+<script>
+    const toggle = document.getElementById('toggle');
+    const menu = document.getElementById('menu')
+    const navbar = document.getElementById('navbar')
+    toggle.onclick = function() {
+        toggle.classList.toggle('activated')
+        toggle.classList.replace('w3-black', 'w3-white');
+        navbar.classList.toggle('activated')
+        if (menu.textContent == 'menu') {
+            menu.innerHTML = 'close';
+        } else {
+            menu.innerHTML = 'menu';
+        }
+    }
+</script>
+{% endblock %}

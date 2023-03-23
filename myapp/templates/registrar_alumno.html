@@ -1,0 +1,19 @@
+{% extends "layout.html" %} {% block content%} {%from "_macros.html" import render_field%}
+
+<div class="w3-card-4">
+    <div class="w3-container w3-teal">
+      <h1>Registrar alumno</h1>
+    </div>
+
+    <form name="sent" class="w3-container w3-light-grey" style="padding-bottom: 1rem;" action="/alumnos/registrar" id="form1" method="POST">
+        {{render_field(form.nombre)}}
+        {{render_field(form.apellidos)}}
+        {{render_field(form.email)}}
+        <br>
+        <input type="hidden" name="csrf_token" value="{{csrf_token()}}" />
+        <input class="w3-btn w3-blue-grey" type="submit" id="reg-alum" name="registra" value="Registrar" /> </div>
+    </form>
+    </div>
+</div>
+
+{% endblock %}
